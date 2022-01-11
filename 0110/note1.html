@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            color: blue;
+            font-size: 50px;
+            background-color: beige;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>Hello World!</div>
+    <!-- abc -->
+    <p id="demo"></p>
+    <script>
+        console.log("Hello World!");
+        // confirm("abu");
+
+        // 弱类型 解释型语言
+        //一、说明变量
+        var b;//var用于函数级作用域
+        let a;//let 块级作用域
+        //初始化 //生命变量如果没有赋值那么就没有类型 ，默认为undefined
+        a = 123;
+        a = 'abu';
+        let c;
+        console.log(c);
+
+        //类型判断
+        console.log(typeof(c));
+        //控制台输出的内容字体颜色不一样代表类型不同,用处：便于观察问题
+
+        // js不区分单双引号,但是不要乱用
+        //二、数据类型
+        //1.数值型number
+        //2.字符串string 
+        //3.布尔boolean
+        //4.特殊类型
+        //5.undefined
+        //6.object ps:js是基于对象的编程语言，封装了很多常用的对象比如Math
+        let t = Math.PI;
+        t = Math.random(); //返回0~1之间随机的一个数字
+        // 1到100的浮点数
+        t = Math.random()*99 + 1;
+        // 整数
+        t = Math.floor(Math.random()*99 + 1);
+        //function也算一个类型但本质上是object
+
+        
+        //文档对象模型 document
+        document.write("hhhh");
+        document.getElementById("demo").innerHTML = "java";
+
+        //
+        // 三、表达式和运算符
+        // let num = 100;//比较完整的表达式
+        // num+=1000;
+        // let sun = num -10;
+        // console.log(num);
+        // num++;
+        // num--;
+
+        //so tired
+        // num =10%7;
+
+        //类型转换
+        // let num1 =10
+        // let num2 = '10';
+        // console.log(num1+num2);//1010 浏览器显示为深黑色字体，表示为字符串类型
+
+        // console.log(num1*num2);//100 浏览器显示为蓝色字体，输出数值类型的结果
+        // // num1变成字符串
+        // num1 = num1 +'';
+        // num2 = num2*1;
+
+        // let num = 10;
+        // //利用构造函数来进行类型转换
+        // let str = String(num);
+        // console.log(str);
+        // let num1 = Number(str);
+
+
+        // 四、语句
+        // 1.选择结构
+        // 条件语句 if(判断表达式){如果判断表达式为TRUE则执行此处代码块}else if{...}else{...}
+
+        // 程序最好不要出现四五个if...else... 高耦合，低内聚
+        // if(1){
+        //     console.log(true);
+        // }else{
+        //     console.log(false);
+        // }
+        // let key =0;
+
+        // switch (key) {
+        //     case 0:
+        //         console.log("key:"+key);
+        //         break;
+        //     default:
+        //         break;
+        // }
+
+        // 2.循环结构：某一段代码，需要重复执行
+        //
+        for (let i = 0; i < 3; i++) {
+            console.log(i);
+            
+        }
+        // 嵌套for循环
+        document.write("<table boder='1'>");
+        for (let i = 1; i <= 9; i++) {
+            document.write("<tr>");
+            for (let j = 1; j < i; j++) {
+                document.write("<td>" + i+ " * "+ j+" = " + i*j+"</td>")
+            }
+            document.write("</tr>");
+        }
+
+        // while
+
+        //do while
+        // let str = ' ';
+        // do{
+        //     str = prompt("yes or yes");//输入框
+
+        // }while(str!=='yes')
+        // alert("it's good!");
+
+        //判断一个数是否是质数
+        // let num = Number(prompt("请输入一个数字"));
+        // console.log(num);
+        // //判断num为有值
+        // if (!isNaN(num)) {
+        //     let isPrime = true;
+        //     for (let i = 2; i < num; i++){
+        //         if (num%i===0) {
+        //             console.log("不是质数");
+        //             isPrime = false;
+        //             break;
+        //         }
+        //     }
+
+        //     if(isPrime) console.log("是质数");
+        // 
+    </script>
+</body>
+
+</html>

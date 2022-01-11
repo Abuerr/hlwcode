@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输出100以内的所有质数</title>
+</head>
+
+<body>
+    <h1>二 输出100以内的所有质数</h1>
+    <button id="btn">输出</button>
+
+    <script>
+
+       
+        let num = 100;
+
+         //判断一个数是否是质数
+        function isPrime(a) {
+            if (!isNaN(a)) {
+                let isPrime = true;
+                for (let i = 2; i < a; i++) {
+                    if (a % i === 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) document.write("<br/>"+a);
+            }
+        }
+
+        function myPrime(b){
+            for (let i = 2; i <=b; i++) {
+                isPrime(i);
+            }
+        }
+
+        btn.onclick =function(){
+            myPrime(num);
+        }
+    </script>
+</body>
+
+</html>

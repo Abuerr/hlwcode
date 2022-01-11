@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>陈煌鑫 比武招亲</h1>
+    <div>
+        年龄 <input type="number" id="age" value=""> <br />
+        是否会C++
+        <input type="radio" name="canC" checked="checked" value="yes">yes
+        <input type="radio" name="canC" checked="checked" value="no">no<br />
+        财富值<input type="number" id="money" value="">万<br />
+        头发长度<input type="number" id="hairLen" value="">米<br />
+        <input type="button" name="" value="提交" id="btn">
+    </div>
+
+    <script>
+
+
+        btn.onclick = function () {
+            let age = Number(document.getElementById("age").value);
+            let canC = document.getElementsByName("canC");
+            let money = document.getElementById("money").value * 1;
+            let hairLen = document.getElementById("hairLen").value * 1;
+            let value;
+            //
+            let count =0;
+
+            for (var i = 0; i < canC.length; i++) {
+                if (canC[i].checked == true) {
+                    value = canC[i].value;
+                    break;
+                }
+            }
+
+           
+            count += (age >= 18 && age <= 50) ? true : false;
+            count += (value == "yes") ? true : false;
+            count += (money >= 500) ? true : false;
+            count += (hairLen >= 1) ? true : false;
+
+
+            if (count < 2) {
+                confirm("免谈");
+            } else if (count == 2) {
+                confirm("勉为其难");
+            } else {
+                confirm("非他不可");
+            }
+        }
+    </script>
+</body>
+
+</html>
