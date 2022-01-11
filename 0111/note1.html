@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //数组 有序存储集合
+        // let arr = new Array();//实例化对象但是不推荐这种声明
+        // //声明一个空数组，建议的声明方式
+        // // let arrNum = [];
+        // // js的数组 里面可以存放任意类型但是建议放相同类型
+        // let arrNum = [1,2,3,4];
+        // //访问数组元素 ： 数组名称[索引] 索引只能是非负整数
+        // //修改数组元素
+        // arrNum[2] = 12;
+        // let num = arrNum[0];
+        // //数组输出
+        // console.log(arrNum);
+        // // 数组的一个常用属性
+        // console.log(arrNum.length);
+        // //遍历数组
+        // for (let i = 0; i < arrNum.length; i++) {
+        //     let num = arrNum[i];
+        //     console.log(num);
+        // }
+
+        // arrNum.forEach(element => {
+        //     console.log(element);
+        // });
+
+        // //删除数组元素
+        // arrNum.pop();
+        // console.log(arrNum);
+
+        // //增加数组元素
+        // arrNum.push(12);
+        // console.log(arrNum);
+
+        // 二维数组 常用来画地图和图片位置的分布
+        // let arr = [[0,1],[2,5],[3,4],[10,200,1]];
+        // arr[0][3];//undefined 
+
+        // 普通便利和函数明命名规范：小驼峰
+        // 小驼峰：第一个单词全部小写 后面第一个字母大写
+        // 名称的意思 ：名副其实 playerName
+        // 不要用中文或者中文拼音命名,除非是中国特有的文化内容
+        // 分号js不强制分号 但是建议使用分号
+
+
+        // 对象
+        let ojb = {};//空对象
+        let obj = { //键值对形式
+            name: '李白',//冒号前面是属性名称，后面是这个属性的值
+            age: 1230,
+            showAge:function(){ //对象的函数、方法
+                console.log(this.name);
+            }
+        }
+        obj.showAge();
+
+        // 一个对象由两个基本元素构成——属性和方法
+        // 访问属性 1.对象名称.属性名 2.对象名称['属性名称']
+        console.log(obj.age);
+        console.log(obj['age']);
+
+        //访问对象没有的属性，其会自动创建这个属性的变量，变量值为undefined
+        console.log(obj.a);//undefined
+        console.log(obj['a']);//undefined
+
+        //修改属性或插入属性
+        obj.a = 1000;
+        console.log(obj.a);
+
+        // 调用对象的函数
+        obj.showAge();
+
+        
+
+    </script>
+</body>
+
+</html>
