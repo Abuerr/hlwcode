@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过div元素的style属性，style本身 */
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            left: 0px;
+            /* right: inhe; */
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="boxD"></div>
+    <script>
+         let  dir ={'37':'left','39':'left','38':'down','40':'down'};
+        //创建一个对象，表示div块
+        let box = {
+            div:boxD,// div对象
+            x:0,//横坐标
+            y:0,//纵坐标
+            moveDelta:{
+                'left':{x:-50,y:0},
+                'right':{x:50,y:0},
+                'up':{x:0,y:-50},
+                'down':{x:0,y:50},
+            },
+            setPosition:function(x,y){
+                this.div.style.left =x + 'px';
+                this.div.style.top = y + 'px';
+                this.x = x;
+                this.y = y;
+            },
+            move:function(dx,dy) {
+                this.x+=dx;
+                this.y+=dy;
+                this.setPosition(this.x,this.y);
+            }
+        }
+
+        box.setPosition(100,100);
+        //对蓝色块进行初始化位置设置
+        // box.style.left = x + 'px';
+        // box.style.top = y + 'px';//字符串拼接避免单位的出错
+
+        //事件回调函数
+        //回调函数：定义阶段就已经设置好什么时机调用这个函数（不需要主动调用）
+        // 当键盘按下的时候执行这个函数
+        onkeydown = function (e) {
+            //判断按下了哪个键盘
+            // e表示键盘事件
+            // console.log(e);//可以在浏览器的控制台查看输出内容
+
+
+            let data = dir[e.keyCode];
+            if (!data) {
+                return;
+            }
+
+            let mDelta = box.moveDelta[data];
+            box.move(mDelta.x,mDelta.y);
+
+            // switch (e.keyCode) {
+            //     case 37:// 左
+            //         box.move(-50,0);
+            //         break;
+            //     case 39:// 右
+            //         box.move(50,0);
+            //         break;
+            //     case 38:// 上
+            //         box.move(0,-50);
+            //         break;
+            //     case 40:// 下
+            //         box.move(0,50);
+            //         break;
+            //     default:
+            //         break;
+            // }
+        // 安装新的x,y值来设置box的位置
+            // box.style.left = x + 'px';
+            // box.style.top = y + 'px';
+            // box.setPosition();
+        }
+
+        //数据和业务逻辑要分离，低耦合，高内聚
+
+    </script>
+</body>
+
+</html>
