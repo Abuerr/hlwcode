@@ -48,6 +48,21 @@
             }
         }
 
+        function isNarcissi2(a) {
+            let sum = 0;
+            let num =a;
+            while(num>0){
+                let b1 = num%10;
+                let b2 = parseInt(b1/10);
+                sum+=Math.pow(b1,3);
+            }
+            if (sum == a) {
+                return true;
+            }
+            return false;
+        }
+
+        
          
 
         btn.onclick = function () {
