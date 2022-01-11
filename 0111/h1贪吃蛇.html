@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过div元素的style属性，style本身 */
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            left: 0px;
+            /* right: inhe; */
+            top: 0px;
+            border:2px solid chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        class Snake {
+            // 设置默认值
+            x = 0;
+            y = 0;
+            // let x,y,div;
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.createDiv();
+                this.setPisition(this.x, this.y);
+            }
+
+            createDiv() {
+                this.div = document.createElement("div");
+                document.body.appendChild(this.div);
+            }
+
+            setPisition(x, y) {
+                this.div.style.left = x + 'px';
+                this.div.style.top = y + 'px';
+            }
+        }
+
+        let dir = { '37': 'left', '39': 'right', '38': 'up', '40': 'down' };
+
+        // 继承
+        // 创造可移动的sanke
+        class MoveSnake extends Snake {
+            speed = 10;
+            state = {
+                'left': { x: -this.speed, y: 0 },
+                'right': { x: this.speed, y: 0 },
+                'up': { x: 0, y: -this.speed },
+                'down': { x: 0, y: this.speed },
+            }
+
+            dir = { x: this.speed, y: 0 };
+
+            constructor(x, y) {
+                // 调用父类的构造函数，继承类的构造函数必须调用父累的构造函数
+                super(x, y);
+            }
+
+            // 移动
+            move(dx, dy) {
+                this.x += dx;
+                this.y += dy;
+                this.setPisition(this.x, this.y);
+            }
+
+        }
+
+        let head = new MoveSnake(100,100);
+
+        // 按下键改变方向
+        onkeydown = function (e) {
+            let key = dir[e.keyCode];
+            if (!key) {
+                return;
+            }
+            head.dir = head.state[key];
+        }
+
+        // js的定时器：每隔一段时间回调一次函数
+        //箭头函数 ()=>{} 同等于 function(){}
+        setInterval(() => {
+            // 每一秒钟，块按照自己的方向移动一格
+            head.move(head.dir.x,head.dir.y)
+            // 所有的身体 跑到自己的索引-1的那个节点的上一个位置
+        },300);
+
+        // 
+    </script>
+</body>
+
+</html>
