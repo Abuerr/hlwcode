@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过div元素的style属性，style本身 */
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            left: 0px;
+            /* right: inhe; */
+            top: 0px;
+            border: 2px solid chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 方向数据
+        let dir = { '37': 'left', '39': 'right', '38': 'up', '40': 'down' };
+        // 块宽
+        let boxWH = 50;
+
+
+
+        class Box {
+            // 设置默认值
+            x = 0;
+            y = 0;
+            // 备份自身的上一个位置
+            bkX = 0;
+            bkY = 0;
+            // 块的长宽
+            w = 50;
+            h = 50;
+            // let x,y,div;
+            constructor(x, y, w, h, color) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+                // 默认颜色
+                this.color = color;
+                // 创建块
+                this.createDiv(this.w, this.h, this.color);
+                this.setPisition(this.x, this.y);
+
+            }
+
+            // 创建块
+            createDiv(w, h, color) {
+                this.div = document.createElement("div");
+                document.body.appendChild(this.div);
+                this.style.setColor(color);
+                this.style.width = w + 'px';
+                this.style.height = h + 'px';
+            }
+
+            // 删除自身，用于食物被吃掉或者位置不合理的时候
+            removeDiv() {
+                document.body.removeChild(this.div);
+            }
+
+
+            //设置位置
+            setPisition(x, y) {
+                this.div.style.left = x + 'px';
+                this.div.style.top = y + 'px';
+                //更新自身的x、y
+                this.x = x;
+                this.y = y;
+            }
+
+            // 备份位置
+            backUp() {
+                this.bkX = this.x;
+                this.bkX = this.y;
+            }
+
+            // 颜色设置
+            setColor(color) { // 颜色形参要带引号
+                this.div.style.backgroundColor = color;
+            }
+
+            // 检测碰撞
+            isCollison(box) {
+                if (this.x == box.x && this.y == box.y) {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        // 继承
+        // 创造可移动的sanke
+        class MoveSnake extends Box {
+            speed = 10;
+            state = {
+                'left': { x: -this.speed, y: 0 },
+                'right': { x: this.speed, y: 0 },
+                'up': { x: 0, y: -this.speed },
+                'down': { x: 0, y: this.speed },
+            }
+
+            dir = { x: this.speed, y: 0 };
+
+            constructor(x, y, w, h, color) {
+                // 调用父类的构造函数，继承类的构造函数必须调用父累的构造函数
+                super(x, y, w, h, color);
+            }
+
+            // 移动
+            move(dx, dy) {
+                this.x += dx;
+                this.y += dy;
+                this.setPisition(this.x, this.y);
+            }
+
+        }
+
+
+        // 边框 15*15
+        const ROW = 15; // 行
+        const COL = 15; // 列
+
+        // 设计地图
+
+
+        // 蛇头
+        let head = new MoveSnake(100,100,boxWH,boxWH,'red');
+        // 创建存放蛇身的数组
+        let snakes = [];
+        snakes[0] = head;
+        for (let i = 0; i < 3; i++) {
+            // 蛇身不用运动，只要跟着头就可以了
+            let snake = new Box(head.x + head.w + boxWH * i, head.y, boxWH, boxWH, 'green');
+            snakes.push(snake);
+        }
+
+        // 食物
+        let food;
+
+
+        // 随机产生的食物
+        function randomFood() {
+
+            /**
+             * Math.random() * (COL-2) 是得到0~13，但是食物的位置应该是在1~14，所以要加一
+             * */
+            let x = (Math.floor(Math.random() * (COL - 2)) + 1) * boxWH;
+            let y = (Math.floor(Math.random() * (ROW - 2)) + 1) * boxWH;
+
+            // 创建随机食物块
+            food = new Box(x, y, boxWH, boxWH, 'gray');
+            // 检测生成的食物位置和蛇的位置是否重合，重合则重新随机生成
+            for (let i = 0; i < snakes.length; i++) {
+                if (snakes[i].isCollison(food)) {
+                    // 碰撞则删除食物，置空
+                    food.removeDiv();
+                    food = null; // null也是一种类型，本质是object
+                    // 重新生成
+                    randomFood();
+                }
+
+            }
+
+        }
+
+
+
+
+        // 按下键改变方向
+        onkeydown = function (e) {
+            let key = dir[e.keyCode];
+            if (!key) {
+                return;
+            }
+            head.dir = head.state[key];
+        }
+
+
+
+
+        // js的定时器：每隔一段时间回调一次函数
+        //箭头函数 ()=>{} 同等于 function(){}
+        setInterval(() => {
+            // 备份蛇的每一块的位置
+            for (let i = 0; i < snakes.length; i++) {
+                snakes[i].backUp();
+            }
+            // 每一秒钟，蛇块按照自己的方向移动一格
+            head.move(head.dir.x, head.dir.y);
+
+            // 判断头有没有碰撞到食物
+            if (head.isCollison(food)) {
+                // 把食物格子存储到蛇的数组中
+                food.setColor(snakes[1].color); // 更改食物的颜色，使其颜色为蛇身颜色
+                snakes.push(food);
+                food = null;
+                // 创建新的随机食物
+                randomFood();
+            }
+
+        }, 300);
+
+        // 
+    </script>
+</body>
+
+</html>
