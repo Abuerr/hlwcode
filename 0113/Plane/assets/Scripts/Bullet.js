@@ -3,13 +3,13 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-       
+       speed:300,
     },
 
     // LIFE-CYCLE CALLBACKS:
     // 初始化的东西一般写到onLoad里面
     onLoad () {
-        this.speed=300;
+        
     },
 
     start () {

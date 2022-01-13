@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Bullet",
+    "_name": "Enemy",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -21,13 +21,10 @@
     "_components": [
       {
         "__id__": 2
-      },
-      {
-        "__id__": 3
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 3
     },
     "_opacity": 255,
     "_color": {
@@ -39,8 +36,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 66,
-      "height": 125
+      "width": 158,
+      "height": 118
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -58,8 +55,8 @@
         0,
         0,
         1,
-        0.5,
-        0.5,
+        1,
+        1,
         1
       ]
     },
@@ -92,7 +89,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "0f63249e-b609-4066-beae-a8fc20efca99"
+      "__uuid__": "55743bb9-d287-407f-b2a5-84baaf79ba41"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -106,19 +103,8 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_atlas": {
-      "__uuid__": "e700ce9f-0f25-493e-82c6-9561d8d15f1f"
+      "__uuid__": "34c22df0-d304-49e0-9113-e14d9a3005c6"
     },
-    "_id": ""
-  },
-  {
-    "__type__": "f09a9MpLuFO5bQRhWj+MWQ2",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "speed": 300,
     "_id": ""
   },
   {
@@ -127,7 +113,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
+      "__id__": 0
     },
     "fileId": "",
     "sync": false

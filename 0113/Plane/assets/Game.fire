@@ -287,6 +287,12 @@
       },
       {
         "__id__": 10
+      },
+      {
+        "__id__": 12
+      },
+      {
+        "__id__": 16
       }
     ],
     "_active": true,
@@ -341,7 +347,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "img_bg_level_4",
+    "_name": "Bg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 7
@@ -435,6 +441,81 @@
   },
   {
     "__type__": "cc.Node",
+    "_name": "BulletMgr",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 7
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 11
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "6em+JXzlNDDLkjuIskmsHr"
+  },
+  {
+    "__type__": "0e2e5HNim5BW5TXEjPq0oEA",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 10
+    },
+    "_enabled": true,
+    "bulletPre": {
+      "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
+    },
+    "_id": "04RPmePHtItbZmCkQaGr+B"
+  },
+  {
+    "__type__": "cc.Node",
     "_name": "Player",
     "_objFlags": 0,
     "_parent": {
@@ -442,16 +523,16 @@
     },
     "_children": [
       {
-        "__id__": 11
+        "__id__": 13
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 12
+        "__id__": 14
       },
       {
-        "__id__": 13
+        "__id__": 15
       }
     ],
     "_prefab": null,
@@ -507,7 +588,7 @@
     "_name": "Player",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 10
+      "__id__": 12
     },
     "_children": [],
     "_active": true,
@@ -565,7 +646,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 10
+      "__id__": 12
     },
     "_enabled": true,
     "_materials": [
@@ -599,12 +680,85 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 10
+      "__id__": 12
     },
     "_enabled": true,
-    "bulletPre": {
-      "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
-    },
     "_id": "f1y+ECNO5AUKsvzakC/wyY"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "EnemyMgr",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 7
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 17
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": "1d91W+7W9DIp72+xd221Do"
+  },
+  {
+    "__type__": "2b603rzaYVCloDAyvmEjsmR",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 16
+    },
+    "_enabled": true,
+    "enemyPre": {
+      "__uuid__": "541117a8-5908-4b75-9ded-56c9a920e1ba"
+    },
+    "speed": 200,
+    "_id": "51bmDeg1lPwI/e7IsVphPw"
   }
 ]
