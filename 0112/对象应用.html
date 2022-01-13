@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过div元素的style属性：style本身体现出来也是对象  */
+        /* style里面的所有属性 都可以被该对象访问和修改 */
+        div{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(59, 129, 18);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            border: 1px solid rgb(228, 130, 3);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="boxD"></div> -->
+</body>
+<script>
+    let dir = {'37':'left','39':'right','38':'up','40':'down'};
+    // 创建一个对象 表示div块
+    // let box = {
+    //     div:boxD, //div对象
+    //     x:0, //横坐标
+    //     y:0, //纵坐标
+    //     moveDelta:{'left':{x:-50,y:0},'right':{x:50,y:0},
+    //                 'up':{x:0,y:-50},'down':{x:0,y:50}},
+    //     // 设置位置
+    //     setPositon:function(x,y){
+    //         this.div.style.left = x +'px' ;
+    //         this.div.style.top = y + 'px';
+    //         this.x = x;
+    //         this.y = y;
+    //     },
+    //     // 移动 改变 位置
+    //     move:function(dx,dy){
+    //         this.x += dx;
+    //         this.y += dy;
+    //         this.setPositon(this.x,this.y);
+    //     }
+
+    // }
+
+    // // let bullet = {
+
+    // // }
+
+    // // let x = 0;
+    // // let y = 0;
+    // // 对蓝色块进行初始化位置设置
+    // // boxD.style.left = x +'px' ;
+    // // boxD.style.top = y + 'px';
+    // box.setPositon(100,100);
+
+
+    // // 事件回调函数  键盘按下 事件    回调 
+    // // 回调函数：定义阶段 就已经设置好什么时机调用这个函数（不需要主动调用）
+    // // 当键盘按下的时候 执行这个函数
+    // onkeydown = function(e) {
+    //     // e 表示键盘事件
+    //     // 判断按下了哪个键
+    //     // console.log(e.keyCode)
+    //     // undefined 返回false  null返回false 空字符串返回false 0返回false
+    //     let data = dir[e.keyCode];
+
+    //     if (!data) {
+    //         return;
+    //     }
+    //     let delta = box.moveDelta[data];
+    //     box.move(delta.x,delta.y);
+
+    //     // switch (e.keyCode) {
+    //     //     case 37://左
+    //     //         box.move(-50,0);
+    //     //         break;
+    //     //     case 39://右
+    //     //         box.move(50,0);
+    //     //         break;
+    //     //     case 38://上
+    //     //         box.move(0,-50);
+    //     //         break;
+    //     //     case 40://下
+    //     //         box.move(0,50);
+    //     //         break;
+    //     //     default:
+    //     //         break;
+    //     // }
+    //     // 按照新的x y值来设置box的位置
+    //     // boxD.style.left = x +'px' ;
+    //     // boxD.style.top = y + 'px';
+    //     // box.setPositon();
+    // }
+
+    // 类 体现面向对象的编程思维  封装 继承 多态
+    // class Box{
+    //     // 属性
+    //     age = 18;
+    //     // 构造函数
+    //     constructor(num){
+    //         this.num = num;
+    //     }
+    //     // 成员方法
+    //     show(){
+
+    //     }
+    // }
+
+    // let box = new Box(10);
+    // console.log(box.age);
+    // 基类
+    class Box{
+        x = 0;
+        y = 0;
+        bkX = 0;
+        bkY = 0;
+        // 构造函数
+        constructor(x,y){
+            this.x = x || 0;
+            this.y = y || 0;
+            this.creatDiv();
+            this.setPosition(this.x,this.y);
+        }
+        // 创建div元素
+        creatDiv(){
+            this.div = document.createElement('div');
+            document.body.appendChild(this.div);
+        }
+        // 删除div元素
+        removeSelf(){
+            document.body.removeChild(this.div);
+        }
+        // 设置div元素的位置
+        setPosition(x,y){
+            this.div.style.left = x + 'px';
+            this.div.style.top = y + 'px';
+            // 我们目前设计的定位格子坐标的属性是 x 和y  每一次修改坐标
+            // 相应的要存储到x和y当中
+            this.x = x;
+            this.y = y;
+        }
+        // 备份坐标
+        backUp(){
+            this.bkX = this.x;
+            this.bkY = this.y;
+        }
+        setColor(color){
+            this.div.style.backgroundColor = color;
+        }
+        // 是否碰撞到另外一个格子
+        isCollision(box){
+            if (box.x === this.x && box.y === this.y) {
+                return true;
+            }
+            return false;
+        }
+    }
+
+    // 继承Box
+    class MoveBox extends Box{
+        state = {'left':{x:-50,y:0},'right':{x:50,y:0},
+                   'up':{x:0,y:-50},'down':{x:0,y:50}};
+        dir = {x:0,y:50};
+        constructor(x,y){
+            // 继承类的构造函数 必须调用父类的构造函数
+            super(x,y);
+        }
+        move(dx,dy){
+            this.x += dx;
+            this.y += dy;
+            this.setPosition(this.x,this.y);
+        }
+    }
+
+    // 设计地图
+    const ROW = 15;
+    const COL = 15;
+    let arrSnake = [];
+    let food;
+    function randomFood(){
+        let x = (Math.floor(Math.random() * (COL-2))+1) * 50;
+        let y = (Math.floor(Math.random() * (ROW-2))+1) * 50;
+        food = new Box(x,y);
+        food.setColor('grey'); 
+        for(let i=0;i<arrSnake.length;i++){
+            if (arrSnake[i].isCollision(food)) {
+                food.removeSelf();
+                food = null; //null 是object
+                randomFood();
+            }
+        }  
+    }
+    randomFood();
+
+    for (let i = 0; i < ROW; i++) {
+        for (let j = 0; j < COL; j++) {
+            if (i===0 || j === 0 || i===ROW-1 || j===COL-1) {
+                let cell = new Box(j * 50, i * 50);
+                cell.setColor('rgb(228, 130, 3)');
+            }   
+        } 
+    }
+    // 
+    let head = new MoveBox(100,100);
+    head.setColor('red');
+    arrSnake.push(head);
+    for(let i = 0; i<3;i++){
+        let snake = new Box(150+i*50,100);
+        arrSnake.push(snake);
+    }
+    onkeydown = function(e){
+        let key = dir[e.keyCode];
+        if (!key) {
+            return;
+        }
+        // let state = head.state[key];
+        // head.move(state.x,state.y);
+        head.dir = head.state[key];
+    }
+    // js定时器 每隔一段时间 执行一次回调函数 
+    // 箭头函数  ()=>{}  function(){}
+    setInterval(() => {
+        // 把当前坐标保存到备份坐标上
+        // 遍历数组
+        arrSnake.forEach(element => {
+            element.backUp();
+        });
+
+        // for (let i = 0; i < arrSnake.length; i++) {
+        //     let element = arrSnake[i];
+        //     element.backUp();
+        // }
+        // 每一秒中 块 按照自己的方向 移动一格
+        head.move(head.dir.x,head.dir.y);
+        // 判断有没有撞到食物
+        if (head.isCollision(food)) {
+            // 把食物格子 存储到蛇身体的数组里
+            food.setColor('rgb(59, 129, 18)');
+            arrSnake.push(food);
+            // food变量指空
+            food = null;
+            // 重新随机一个食物
+            randomFood();
+        }
+        // 所有的身体 跑到自己索引-1的那个节点的上一个位置
+        for (let i = 1; i < arrSnake.length; i++) {
+            let snake = arrSnake[i];//遍历除了头以外的每一个格子
+            let element = arrSnake[i-1];//获取当前这个的前一个格子
+            // 把前一个格子的上次所在的坐标 赋值给当前这个格子现在的坐标
+            snake.setPosition(element.bkX,element.bkY);
+        }
+
+    }, 300);
+
+
+    
+</script>
+</html>
