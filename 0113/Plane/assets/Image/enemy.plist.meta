@@ -1,7 +1,6 @@
 {
-  "ver": "1.2.6",
+  "ver": "1.2.4",
   "uuid": "34c22df0-d304-49e0-9113-e14d9a3005c6",
-  "importer": "asset",
   "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
   "size": {
     "width": 485,
@@ -10,9 +9,8 @@
   "type": "Texture Packer",
   "subMetas": {
     "enemy01.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "83b9323a-4b1b-4798-87ad-fdfa8149789d",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -33,9 +31,8 @@
       "subMetas": {}
     },
     "enemy02.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "028b5be8-667b-41d2-997c-aa1f7768de1b",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -56,9 +53,8 @@
       "subMetas": {}
     },
     "enemy03.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "6978219b-0c00-4efb-bf78-72db0451cf26",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -79,9 +75,8 @@
       "subMetas": {}
     },
     "enemy04.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "6aba574e-6b66-495e-98db-cca328b88ab7",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -102,9 +97,8 @@
       "subMetas": {}
     },
     "enemy05.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "ef1c11b2-d58a-4b90-9ace-b26011796410",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -125,9 +119,8 @@
       "subMetas": {}
     },
     "enemy06.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "d581db69-11cc-4f0f-bf3f-8a0ede5710f7",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -148,9 +141,8 @@
       "subMetas": {}
     },
     "enemy07.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "0a4815d4-85a6-4ae4-8e7b-89e307fdf3b5",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -171,9 +163,8 @@
       "subMetas": {}
     },
     "enemy08.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "55743bb9-d287-407f-b2a5-84baaf79ba41",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -194,9 +185,8 @@
       "subMetas": {}
     },
     "enemy09.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "6d22d50b-679f-4117-ab8d-01438de47907",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -217,9 +207,8 @@
       "subMetas": {}
     },
     "enemy10.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "453c2a4d-ad81-42ef-964d-22a25cd4f5ee",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -240,9 +229,8 @@
       "subMetas": {}
     },
     "enemy11.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "451c926c-4fd1-4d20-8ff2-3a2bf2fda3e9",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -263,9 +251,8 @@
       "subMetas": {}
     },
     "enemy12.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "6f1c1023-f10f-4c02-ad26-ee0f2b0d75c8",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -286,9 +273,8 @@
       "subMetas": {}
     },
     "enemy13.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "881e9787-5c6e-4a26-aae1-65ec7bb6aff5",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -309,9 +295,8 @@
       "subMetas": {}
     },
     "enemy14.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "20d542f0-575a-44c2-81d0-6d55befca80b",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -332,9 +317,8 @@
       "subMetas": {}
     },
     "enemy15.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "d1c9465c-d47e-4280-823d-69f8ebc59bde",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -355,9 +339,8 @@
       "subMetas": {}
     },
     "enemy16.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "220d82a1-d072-4db0-9fc9-6460f503e6ba",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -378,9 +361,8 @@
       "subMetas": {}
     },
     "enemy17.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "318c1b0d-d992-4bf2-b256-c9963734f2ca",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -401,9 +383,8 @@
       "subMetas": {}
     },
     "enemy18.png": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "844d8a63-61d0-477c-9d6b-2a6df70f1e5e",
-      "importer": "sprite-frame",
       "rawTextureUuid": "36def1d3-541a-4946-aff0-4b30905abf4d",
       "trimType": "auto",
       "trimThreshold": 1,
