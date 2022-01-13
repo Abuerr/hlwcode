@@ -55,7 +55,9 @@ cc.Class({
     },
 
     update(dt) {
-        enemyMove(dt);//达咩，飞机一动不动
+        //enemyMove(dt);//达咩，飞机一动不动
+
+        
         for (let i = 0; i < this.node.children.length; i++) {
             let enemy = this.node.children[i];
             enemy.y -= this.speed * dt;
