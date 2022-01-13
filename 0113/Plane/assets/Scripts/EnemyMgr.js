@@ -3,7 +3,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        // 敌机预制件
         enemyPre: cc.Prefab,
+        // 子弹预制件
+        bulletPre: cc.Prefab,
+
         speed: 200,//敌机的速度
     },
 
@@ -35,14 +39,36 @@ cc.Class({
         for (let i = 0; i < this.node.children.length; i++) {
             let enemy = this.node.children[i];
             enemy.y -= this.speed * t;
+            // 每个敌机发射子弹
+
         }
     },
 
+    fire() {
+        // 创建子弹
+        // 找到节点BulletMgr
+        let bulletMgrs = this.node.parent.getChildByName('BulletMgr');
+        let bullet = bulletMgrs.getComponent('BulletMgr');
+        // 子弹位置改变
+        bullet.createBullet(this.node);
+        bullet.setSpeed(-200);
+    },
+
     update(dt) {
-        // enemyMove(dt);
+        enemyMove(dt);//达咩，飞机一动不动
         for (let i = 0; i < this.node.children.length; i++) {
             let enemy = this.node.children[i];
             enemy.y -= this.speed * dt;
+            // 敌机发射子弹
+            let bulletMgrs = this.node.parent.getChildByName('BulletMgr');
+            let bullet = bulletMgrs.getComponent('BulletMgr');
+            // 子弹位置改变
+            bullet.createBullet(enemy);
+            bullet.setSpeed(-200);
         }
+
+        // 只有一架敌机测试
+
+       
     },
 });

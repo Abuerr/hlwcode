@@ -23,5 +23,9 @@ cc.Class({
         // 设置子弹的位置，子弹的位置就是要发射子弹的飞机节点
         bullet.position = node.position;
     },
+    // 设置子弹的速度
+    setSpeed(speed){
+        this.bulletPre.speed = speed;
+    }
     // update (dt) {},
 });
