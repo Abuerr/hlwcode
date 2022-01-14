@@ -43,7 +43,7 @@ cc.Class({
 
     start() {
         // 隔一定时间产生一个敌机
-        this.schedule(this.createEnemy, 1);
+        // this.schedule(this.createEnemy, 1);
     },
 
     // 创建敌人
