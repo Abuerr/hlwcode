@@ -9,7 +9,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    
 
     start() {
         // 先获取BulletMgr节点
@@ -23,9 +23,11 @@ cc.Class({
         this.schedule(this.fire, 0.5);
     },
     // 初始化敌机
-    init() {
+    init(spriteFrame) {
         // 设置敌机位置
         this.randomPos();
+        // 设置敌机的样式图片
+        this.setImag(spriteFrame);
     },
 
     // 敌机的随机位置
@@ -35,6 +37,13 @@ cc.Class({
         let x = Math.random() * (cc.winSize.width - this.node.width) + this.node.width / 2;
         // 定义敌人的位置
         this.node.position = cc.v2(x, y);
+    },
+
+    setImag(spriteFrame){
+        // 获取这个节点上的精灵组件
+        // 可以用名称也可以用类型来获取
+        let spriteCom = this.node.getComponent(cc.Sprite);
+        spriteCom.spriteFrame = spriteFrame;
     },
 
     fire() {
