@@ -51,10 +51,9 @@ cc.Class({
         // 找子节点node.getChildByName('节点名称')
         let bulletMgrs = this.node.parent.getChildByName('BulletMgr');
         // 获取节点的脚本 node.getComponent('组件名称/脚本名称')
-        let bullet = bulletMgrs.getComponent('BulletMgr');
-         // 生成子弹
-        bullet.createBullet(this.node);
-
+        let bulletMgr = bulletMgrs.getComponent('BulletMgr');
+         // 生成子弹,参数：飞机节点，方向，角度
+        bulletMgr.createBullet({node:this.node,dir:cc.v2(0,1),angle:0});
     },
     // update (dt) {},
 });

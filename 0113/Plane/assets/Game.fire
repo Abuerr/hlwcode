@@ -758,6 +758,9 @@
     "enemyPre": {
       "__uuid__": "541117a8-5908-4b75-9ded-56c9a920e1ba"
     },
+    "bulletPre": {
+      "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
+    },
     "speed": 200,
     "_id": "51bmDeg1lPwI/e7IsVphPw"
   }
