@@ -26,11 +26,7 @@ cc.Class({
         let enemy = cc.instantiate(this.enemyPre);
         // 将敌人挂到敌人管理器上
         enemy.parent = this.node;
-        // 敌人的位置
-        let y = cc.winSize.height;// 获取场景界面高度
-        let x = Math.random() * (cc.winSize.width - enemy.width) + enemy.width / 2;
-        // 定义敌人的位置
-        enemy.position = cc.v2(x, y);
+        enemy.getComponent('Enemy').init();
     },
 
   
@@ -41,6 +37,5 @@ cc.Class({
             let enemy = this.node.children[i];
             enemy.y -= this.speed * dt;
         }
-       
     },
 });
