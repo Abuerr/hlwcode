@@ -26,9 +26,6 @@ cc.Class({
         bulletJs.init(obj);
         
     },
-    // 设置子弹的速度
-    setSpeed(speed){
-        this.bulletPre.speed = speed;
-    }
+   
     // update (dt) {},
 });

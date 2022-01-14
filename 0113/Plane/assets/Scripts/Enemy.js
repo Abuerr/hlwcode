@@ -18,13 +18,12 @@ cc.Class({
         // 第二种获取方式
         // let bulletMgr = this.node.parent.parent.getChildByName('BulletMgr');// 太长不推荐
         // 节点找到自己的脚本组件，保存起来，方便生成调用子弹生成函数
-        let bulletMgr =  bulletMgrN.getComponent('Bullet');
+        this.bulletMgr =  bulletMgrN.getComponent('BulletMgr');
         // 间隔生成子弹
         this.schedule(this.fire,0.5);
-        
     },
     fire() {
-        // 创建子弹
+        // 创建子弹     
         this.bulletMgr.createBullet({node:this.node,dir:cc.v2(0,-1),angle:180});
     },
 
