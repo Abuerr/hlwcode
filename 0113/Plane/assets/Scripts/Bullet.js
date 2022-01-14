@@ -10,6 +10,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
     // 初始化的东西一般写到onLoad里面
     onLoad() {
+        this.dir = cc.v2(0,0); 
         this.speed = 300;
     },
 
@@ -26,6 +27,7 @@ cc.Class({
         this.node.position = obj.node.position;
         // 把当前子弹的发射者保存起来
         this.owner = obj.node;
+        // console.log(12);
     },
     // 设置子弹的方向
     setDir(dir) {
@@ -38,7 +40,7 @@ cc.Class({
 
     update(dt) {
         // 竖向改变位置，速度乘以时间
-        this.node.x += this.speed * dt * this.dir;
-        this.node.y += this.speed * dt * this.dir;
+        this.node.x += this.speed * dt * this.dir.x;
+        this.node.y += this.speed * dt * this.dir.y;
     },
 });
