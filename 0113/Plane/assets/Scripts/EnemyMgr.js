@@ -3,7 +3,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        // 敌机预制件
         enemyPre: cc.Prefab,
+        // 子弹预制件
+        bulletPre: cc.Prefab,
+
         speed: 200,//敌机的速度
     },
 
@@ -29,20 +33,14 @@ cc.Class({
         enemy.position = cc.v2(x, y);
     },
 
-    // 敌人的移动
-    enemyMove(t) {
-        // 找到所有的敌人
-        for (let i = 0; i < this.node.children.length; i++) {
-            let enemy = this.node.children[i];
-            enemy.y -= this.speed * t;
-        }
-    },
+  
+
 
     update(dt) {
-        // enemyMove(dt);
         for (let i = 0; i < this.node.children.length; i++) {
             let enemy = this.node.children[i];
             enemy.y -= this.speed * dt;
         }
+       
     },
 });
