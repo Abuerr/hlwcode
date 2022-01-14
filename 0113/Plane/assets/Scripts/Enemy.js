@@ -9,7 +9,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    
 
     start() {
         // 先获取BulletMgr节点
@@ -18,13 +18,37 @@ cc.Class({
         // 第二种获取方式
         // let bulletMgr = this.node.parent.parent.getChildByName('BulletMgr');// 太长不推荐
         // 节点找到自己的脚本组件，保存起来，方便生成调用子弹生成函数
-        this.bulletMgr =  bulletMgrN.getComponent('BulletMgr');
+        this.bulletMgr = bulletMgrN.getComponent('BulletMgr');
         // 间隔生成子弹
-        this.schedule(this.fire,0.5);
+        this.schedule(this.fire, 0.5);
     },
+    // 初始化敌机
+    init(spriteFrame) {
+        // 设置敌机位置
+        this.randomPos();
+        // 设置敌机的样式图片
+        this.setImag(spriteFrame);
+    },
+
+    // 敌机的随机位置
+    randomPos() {
+        // 敌人的位置
+        let y = cc.winSize.height + this.node.height;// 获取场景界面高度
+        let x = Math.random() * (cc.winSize.width - this.node.width) + this.node.width / 2;
+        // 定义敌人的位置
+        this.node.position = cc.v2(x, y);
+    },
+
+    setImag(spriteFrame){
+        // 获取这个节点上的精灵组件
+        // 可以用名称也可以用类型来获取
+        let spriteCom = this.node.getComponent(cc.Sprite);
+        spriteCom.spriteFrame = spriteFrame;
+    },
+
     fire() {
         // 创建子弹     
-        this.bulletMgr.createBullet({node:this.node,dir:cc.v2(0,-1),angle:180});
+        this.bulletMgr.createBullet({ node: this.node, dir: cc.v2(0, -1), angle: 180 });
     },
 
     // update (dt) {},
