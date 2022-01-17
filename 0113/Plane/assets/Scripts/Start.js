@@ -3,7 +3,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        
+        bar:cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -15,7 +15,8 @@ cc.Class({
         // 参数1 事件名称 ，参数2 回调函数，参数3 this、
         this.node.on('click',()=>{
             // 切换场景 到游戏界面
-            cc.director.loadScene('Game');
+            // cc.director.loadScene('Game');
+            this.bar.active = true;
         });
 
     },
