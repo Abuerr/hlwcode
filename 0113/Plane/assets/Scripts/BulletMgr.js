@@ -5,27 +5,41 @@ cc.Class({
     properties: {
         //  子弹预设体属性
         bulletPre:cc.Prefab,
+        // 获取存放子弹媒体资源数据的json文件
+        bulletJson:cc.JsonAsset,
+        // 存放图集资源
+        atlas:cc.SpriteAtlas,
     },
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
 
     start() {
 
     },
 
     // 创建子弹
-    createBullet(obj){
+    createBullet(node,id){
+        let data = this.getDataById(this.bulletJson.json,id);
+        data.spriteFrame = this.atlas.getSpriteFrame(data.img);
+        
+        data.owner = node;
+
+        // 预制体实例化成节点的方法
         let bullet = cc.instantiate(this.bulletPre);
         // 将其挂到子弹管理者节点上
         bullet.parent = this.node;
         // 获取子弹节点的组件（脚本）Bullet
         let bulletJs = bullet.getComponent('Bullet');
+        // 获取随机的图集资源
         // 初始化子弹
-        bulletJs.init(obj);
-        
+        bulletJs.init(data);
     },
-   
-    // update (dt) {},
+    
+    // 在图集资源中根据id查找到对应的文件信息
+    getDataById(json,id){
+        for (let i = 0; i < json.length; i++) {
+            if(json[i].id === id){
+                return json[i];
+            }
+        }
+    },
+    
 });

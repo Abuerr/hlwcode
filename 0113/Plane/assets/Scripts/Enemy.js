@@ -7,9 +7,6 @@ cc.Class({
     },
     // 敌人自己开火
 
-    // LIFE-CYCLE CALLBACKS:
-
-    
 
     start() {
         // 先获取BulletMgr节点
@@ -23,11 +20,13 @@ cc.Class({
         this.schedule(this.fire, 0.5);
     },
     // 初始化敌机
-    init(spriteFrame) {
+    init(data) {
         // 设置敌机位置
         this.randomPos();
         // 设置敌机的样式图片
-        this.setImag(spriteFrame);
+        this.setImag(data.spriteFrame);
+        // 获取data数据中的对应的子弹id
+        this.bulletId = data.bulletId;
     },
 
     // 敌机的随机位置
@@ -48,7 +47,7 @@ cc.Class({
 
     fire() {
         // 创建子弹     
-        this.bulletMgr.createBullet({ node: this.node, dir: cc.v2(0, -1), angle: 180 });
+        this.bulletMgr.createBullet(this.node,this.bulletId);
     },
 
     // update (dt) {},

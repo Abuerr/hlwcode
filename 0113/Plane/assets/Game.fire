@@ -512,7 +512,13 @@
     "bulletPre": {
       "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
     },
-    "_id": "04RPmePHtItbZmCkQaGr+B"
+    "bulletJson": {
+      "__uuid__": "6734eb5d-f7b8-49b7-9299-236fd334fe9a"
+    },
+    "atlas": {
+      "__uuid__": "e700ce9f-0f25-493e-82c6-9561d8d15f1f"
+    },
+    "_id": "5ew4VzAmRMmrCQ/cZyI+f9"
   },
   {
     "__type__": "cc.Node",
@@ -818,8 +824,8 @@
     "enemyPre": {
       "__uuid__": "541117a8-5908-4b75-9ded-56c9a920e1ba"
     },
-    "bulletPre": {
-      "__uuid__": "2c578466-b602-4640-b70a-9d39dd409279"
+    "enemyDt": {
+      "__uuid__": "9d0d5efa-518c-4ef0-a435-557d3d8b0187"
     },
     "speed": 200,
     "_id": "51bmDeg1lPwI/e7IsVphPw"

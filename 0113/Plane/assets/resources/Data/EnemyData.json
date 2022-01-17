@@ -23,11 +23,6 @@
         "id": 2005,
         "img": "enemy11",
         "bulletId": 3005
-    },
-    {
-        "id": 2006,
-        "img": "enemy07",
-        "bulletId": 3005
     }
-    
+
 ]

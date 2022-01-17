@@ -18,16 +18,18 @@ cc.Class({
     },
 
     // 初始化子弹的各项参数
-    init(obj) {
+    init(data) {
         // 设置方向
-        this.setDir(obj.dir);
+        this.setDir(data.dir);
         // 设置角度
-        this.setAngle(obj.angle)
+        this.setAngle(data.angle)
         // 设置位置
-        this.node.position = obj.node.position;
+        this.node.position = data.owner.position;
         // 把当前子弹的发射者保存起来
-        this.owner = obj.node;
-        // console.log(12);
+        this.owner = data.owner;
+       
+        // 设置子弹图片
+        this.node.getComponent(cc.Sprite).spriteFrame = data.spriteFrame;
     },
     // 设置子弹的方向
     setDir(dir) {
