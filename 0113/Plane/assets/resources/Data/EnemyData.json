@@ -1,0 +1,28 @@
+[
+    {
+        "id": 2001,
+        "img": "enemy07",
+        "bulletId": 3001
+    },
+    {
+        "id": 2002,
+        "img": "enemy08",
+        "bulletId": 3002
+    },
+    {
+        "id": 2003,
+        "img": "enemy09",
+        "bulletId": 3003
+    },
+    {
+        "id": 2004,
+        "img": "enemy10",
+        "bulletId": 3004
+    },
+    {
+        "id": 2005,
+        "img": "enemy11",
+        "bulletId": 3005
+    }
+
+]
