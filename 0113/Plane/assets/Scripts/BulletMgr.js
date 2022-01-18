@@ -1,14 +1,15 @@
+import { ResMgr } from 'ResMgr'
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
         //  子弹预设体属性
-        bulletPre:cc.Prefab,
+        bulletPre: cc.Prefab,
         // 获取存放子弹媒体资源数据的json文件
-        bulletJson:cc.JsonAsset,
-        // 存放图集资源
-        atlas:cc.SpriteAtlas,
+        // bulletJson:cc.JsonAsset,
+        // // 存放图集资源
+        // atlas:cc.SpriteAtlas,
     },
 
     start() {
@@ -16,10 +17,11 @@ cc.Class({
     },
 
     // 创建子弹
-    createBullet(node,id){
-        let data = this.getDataById(this.bulletJson.json,id);
-        data.spriteFrame = this.atlas.getSpriteFrame(data.img);
-        
+    createBullet(node, id) {
+    
+        let data = ResMgr.getInstance().getDataById('BulletData',id);
+        data.spriteFrame = ResMgr.getInstance().getSpriteFrame(data.img);
+
         data.owner = node;
 
         // 预制体实例化成节点的方法
@@ -32,14 +34,8 @@ cc.Class({
         // 初始化子弹
         bulletJs.init(data);
     },
-    
+
     // 在图集资源中根据id查找到对应的文件信息
-    getDataById(json,id){
-        for (let i = 0; i < json.length; i++) {
-            if(json[i].id === id){
-                return json[i];
-            }
-        }
-    },
     
+
 });

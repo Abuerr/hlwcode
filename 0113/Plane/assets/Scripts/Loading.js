@@ -1,4 +1,5 @@
 
+import {ResMgr} from 'ResMgr'
 cc.Class({
     extends: cc.Component,
 
@@ -13,9 +14,18 @@ cc.Class({
         cc.resources.loadDir('',(finish,total,item)=>{
             // 完成进度的函数
             // 访问Loading节点的组件Bar的progress属性
-            this.bar.Progress = finish/total;
-        },()=>{
-            
+            this.bar.progress = finish/total;
+        },(err,assets)=>{
+            // 下载完资源，跳转场景
+            // 使用ResMgr存储下载的资源
+            console.log(assets);// 下载好的资源都在assets中
+            // 遍历下载到的所有资源
+            assets.forEach(asset =>{
+                ResMgr.getInstance().checkType(asset);
+            });
+
+
+            cc.director.loadScene('Game');
         });
     },
 

@@ -17,6 +17,8 @@ cc.Class({
             // 切换场景 到游戏界面
             // cc.director.loadScene('Game');
             this.bar.active = true;
+            // 隐藏按钮
+            this.node.destroy();
         });
 
     },

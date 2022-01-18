@@ -1,4 +1,4 @@
-
+import {ResMgr} from 'ResMgr'
 cc.Class({
     extends: cc.Component,
 
@@ -23,8 +23,10 @@ cc.Class({
     init(data) {
         // 设置敌机位置
         this.randomPos();
+        // 通过ResMgr获取到对应的图片资源
+        let spriteFrame = ResMgr.getInstance().getSpriteFrame(data.img);
         // 设置敌机的样式图片
-        this.setImag(data.spriteFrame);
+        this.setImag(spriteFrame);
         // 获取data数据中的对应的子弹id
         this.bulletId = data.bulletId;
     },
