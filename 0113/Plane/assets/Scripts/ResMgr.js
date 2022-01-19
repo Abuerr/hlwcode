@@ -15,21 +15,24 @@ export class ResMgr {
 
     }
 
-
     checkType(asset) {
         if (asset instanceof cc.SpriteFrame) {
-            this.mapSpriteFrames.set(asset.name, asset);
+            return 'mapSpriteFrames';
         }
         else if (asset instanceof cc.JsonAsset) {
-            this.mapJson.set(asset.name, asset);
+            return 'mapJson'
         } else if (asset instanceof cc.SpriteAtlas) {
-            this.mapAtlas.set(asset.name, asset);
+            return 'mapAtlas';
         }
     }
 
     // 存储spriteFrame资源的接口
     setRes(key, asset) {
-        this.mapSpriteFrames.set(key, asset);
+        let type = this.checkType(asset);
+        if (type) {
+            // obj['age']
+            this[type].set(key, asset);
+        }
     }
 
     // 获取spriteFrame资源的接口,形参为图片信息的key
@@ -66,9 +69,9 @@ export class ResMgr {
                 return json[i];
             }
         }
-    } 
+    }
 
-    getJsonLen(key){
+    getJsonLen(key) {
         let json = this.mapJson.get(key).json;
         return json.length;
     }

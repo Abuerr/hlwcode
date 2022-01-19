@@ -18,10 +18,10 @@ cc.Class({
         },(err,assets)=>{
             // 下载完资源，跳转场景
             // 使用ResMgr存储下载的资源
-            console.log(assets);// 下载好的资源都在assets中
+            // console.log(assets);// 下载好的资源都在assets中
             // 遍历下载到的所有资源
             assets.forEach(asset =>{
-                ResMgr.getInstance().checkType(asset);
+                ResMgr.getInstance().setRes(asset.name,asset);
             });
 
 
