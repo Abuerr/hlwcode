@@ -92,6 +92,12 @@ cc.Class({
         this.isCollison = false;
     },
 
+    // 播放碰撞在地的声音
+    playDrapOut(){
+        let audio = ResMgr.getInstance().getAudio('knock');
+        cc.audioEngine.play(audio,false,1);
+    },
+
     // 只在两个碰撞体开始接触时被调用一次
     // 注意一下 两个一样的节点 进行碰撞 两个节点下的脚本都会执行这个函数
     // 限制这个函数执行两次
@@ -100,6 +106,8 @@ cc.Class({
         // 水果掉落没有碰到相同的水果，碰到了墙和地面
         // 则要在上面生成一个新的水果
         if (!this.isCreate && other.node.name !== 'LeftWall' && other.node.name !== 'RightWall') {
+            // 发出掉落的声音
+            this.playDrapOut();
             // 生成一个随机的数字
             let level = Math.floor(Math.random() * 5) + 1;
             // 发出生成水果的消息
@@ -113,6 +121,7 @@ cc.Class({
         let selfLevel = this.node.level;
         let otherLevel = other.node.level;
 
+        
         // 如果任何一个level是undefine的，那么说明这个节点不是水果则直接结束
         if (!otherLevel || !selfLevel) {
             return;

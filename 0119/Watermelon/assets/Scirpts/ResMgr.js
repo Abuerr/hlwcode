@@ -8,6 +8,8 @@ export default class ResMgr {
     mapJsons = new Map();
     // 存放预制件资源
     mapPrefabs = new Map();
+    // 存放声音资源
+    mapAudio = new Map();
 
     // 构造函数
     constructor() {
@@ -24,6 +26,8 @@ export default class ResMgr {
             return 'mapAtlas';
         } else if (asset instanceof cc.Prefab) {
             return 'mapPrefabs';
+        }else if (asset instanceof cc.AudioClip) {
+            return 'mapAudio';
         }
         return null;
     }
@@ -81,6 +85,10 @@ export default class ResMgr {
     // 根据预制件名字获取对应的预制件资源
     getPrefabs(key) {
         return this.mapPrefabs.get(key);
+    }
+
+    getAudio(key){
+        return this.mapAudio.get(key);
     }
 
 }
