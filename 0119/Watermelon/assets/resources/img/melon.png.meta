@@ -1,7 +1,6 @@
 {
-  "ver": "2.3.7",
+  "ver": "2.3.5",
   "uuid": "5b7aede4-cdae-485d-86a7-08f1e2c36435",
-  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -13,9 +12,8 @@
   "platformSettings": {},
   "subMetas": {
     "melon": {
-      "ver": "1.0.6",
+      "ver": "1.0.4",
       "uuid": "616e6c6d-9c66-4582-87ae-1a57681c306f",
-      "importer": "sprite-frame",
       "rawTextureUuid": "5b7aede4-cdae-485d-86a7-08f1e2c36435",
       "trimType": "auto",
       "trimThreshold": 1,
