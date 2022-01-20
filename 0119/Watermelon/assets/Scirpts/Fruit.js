@@ -10,6 +10,9 @@ cc.Class({
         // 获取物理组件刚体
         this.phyBody = this.node.getComponent(cc.RigidBody);
         this.phyColl = this.getComponent(cc.PhysicsCircleCollider);
+
+        // 获取Counter的Label的string属性
+        console.log(this.node.parent);
     },
 
 

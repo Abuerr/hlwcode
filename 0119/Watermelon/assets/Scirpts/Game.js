@@ -16,7 +16,6 @@ cc.Class({
         this.names[1] = 'juice_o_';
         this.names[2] = 'juice_q_';
         
-        
     },
 
     init() {
