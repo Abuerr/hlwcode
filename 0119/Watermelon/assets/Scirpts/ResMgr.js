@@ -11,8 +11,7 @@ export default class ResMgr {
     // 存放声音资源
     mapAudio = new Map();
 
-    // 计分器
-    counterPoint = 0;
+   
     time = 5;
     
     // 构造函数
