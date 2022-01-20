@@ -20,10 +20,14 @@ cc.Class({
                 // 将资源存放到RrsMgr匿名类的map中
                 ResMgr.getInstance().setRes(asset.name, asset);
             });
+
+            // 生成GameRoot预制件的实例
+            let gameRootPre = ResMgr.getInstance().getPrefabs('GameRoot');
+            let gameRoot = cc.instantiate(gameRootPre);
+            // 挂到当前父节点
+            gameRoot.parent = this.node.parent;
             // 存放完毕之后销毁进度条节点
             this.node.destroy();
-            // 同时修改一个参数
-            cc.isStrat = true;
         });
     },
 
