@@ -6,16 +6,14 @@ cc.Class({
     properties: {
 
     },
-
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
         this.init();
-        this.names = {};
-        this.names[0] = 'juice_l_';
-        this.names[1] = 'juice_o_';
-        this.names[2] = 'juice_q_';
         
+        // 获取倒计时器脚本
+        this.countDownNode = this.node.getChildByName('TimeClock');
+        this.countDownJS = this.countDownNode.getComponent('CountDown');
     },
 
     init() {
@@ -34,6 +32,11 @@ cc.Class({
         cc.systemEvent.on('createFruit', this.createFruit, this);
         // 注册创建爆炸事件
         cc.systemEvent.on('createBoom', this.createBoom, this);
+
+        this.names = {};
+        this.names[0] = 'juice_l_';
+        this.names[1] = 'juice_o_';
+        this.names[2] = 'juice_q_';
     },
     start() {
 
@@ -45,12 +48,8 @@ cc.Class({
     //    水果的属性里面 需要插入一个表示等级的数值 
 
     createFruit(level, pos, type) {
-        // 合成大西瓜后
-        if (level > 11) {
-            return;
-        } else if (level === 11) {
-            // 技术合成了一个大西瓜
-        }
+        // 合成大西瓜后或者时间停止就会停止生成新的水果
+        this.isEnd(level);
         // 实例化水果预制件
         let pre = ResMgr.getInstance().getPrefabs('Fruit');
         let fruit = cc.instantiate(pre);
@@ -71,14 +70,14 @@ cc.Class({
         node.position = pos;
         node.parent = this.node;
         // 生成果粒
-        this.createJuiceLO(level,node,this.names,radius);
+        this.createJuiceLO(level, node, this.names, radius);
         // 生成果汁
-        this.createJuiceQ(level,node,this.names[2]);
+        this.createJuiceQ(level, node, this.names[2]);
     },
 
 
     // 生成果汁部分节点，设置图片
-    createJuice(level,node,name) {
+    createJuice(level, node, name) {
         let juice = new cc.Node();
         juice.parent = node;
         // 增加组件Sprite
@@ -91,11 +90,11 @@ cc.Class({
         return juice;
     },
     // 创建扁型果汁，传入父节点
-    createJuiceLO(level, node,names,radius) {
+    createJuiceLO(level, node, names, radius) {
         for (let i = 0; i < 10; i++) {
             // 创建飞往随机方向的果汁
-            let nameOL = (Math.random()>0.5)? 0:1;
-            let juiceL = this.createJuice(level,node,names[nameOL]);
+            let nameOL = (Math.random() > 0.5) ? 0 : 1;
+            let juiceL = this.createJuice(level, node, names[nameOL]);
 
             // 确定坐标
             let angle = Math.random() * Math.PI * 2;
@@ -124,23 +123,34 @@ cc.Class({
     },
 
     // 生成果汁花
-    createJuiceQ(level, node,name) {
-        let juiceQ = this.createJuice(level,node,name);
+    createJuiceQ(level, node, name) {
+        let juiceQ = this.createJuice(level, node, name);
         // 设置位置
         juiceQ.position = node.position;
         // console.log(juiceQ.position);
     },
-    
-    createBoomAudio(){
+
+    createBoomAudio() {
         // 播放爆炸音效
         let audio = ResMgr.getInstance().getAudio('boom');
-        
-        cc.audioEngine.play(audio,false,1);
-     
+
+        cc.audioEngine.play(audio, false, 1);
+
         // let a = cc.audioEngine.play(audio,false,1);
         // // 停止音效
         // cc.audioEngine.stop(a);
     },
+
+    // 判断是否结束
+    isEnd(level) {
+        
+        let time = this.countDownJS.time;
+        if (level >= 11 || time<=0) {
+            // 计时器停止计时
+            this.countDownJS.endSign = true;
+            return;
+        }
+    }
 
 
 

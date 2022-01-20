@@ -10,7 +10,9 @@ cc.Class({
         // 获取物理组件刚体
         this.phyBody = this.node.getComponent(cc.RigidBody);
         this.phyColl = this.getComponent(cc.PhysicsCircleCollider);
-
+        // 获取counter结点
+        this.ct = this.node.parent.getChildByName("CounterPoint");
+    
         // 获取Counter的Label的string属性
         console.log(this.node.parent);
     },
@@ -24,6 +26,8 @@ cc.Class({
         this.node.on('touchend', this.moveend, this);
         // 如果鼠标在游戏界面外则取消触摸，水果自动掉落
         this.node.on('touchcancel', this.moveend, this);
+
+        
     },
     // 用于激活game创建水果的消息
     emitMsg(level, pos, type) {
@@ -142,6 +146,8 @@ cc.Class({
             // 同时设置改水果的isColliosn为true,避免销毁不及时再次生成
             this.isCollison = true;
             // 标记为依据碰撞 才执行下面的代码
+            // 加分
+            this.addPoint(selfLevel);
             // 合成的水果的位置
             let otherPos = other.node.position;
             let selfPos = this.node.position;
@@ -154,7 +160,18 @@ cc.Class({
             self.node.removeFromParent();
         }
 
-    }
+    },
+    // 生成新的加分
+    addPoint(level){
+        
+        // 修改结点的字符串
+        // 获取脚本Counter
+        let ctCom = this.ct.getComponent('Counter');
+        // 调用修改方法
+        ctCom.updateCounter(level);
+
+    },
+
 
 
     // update (dt) {},

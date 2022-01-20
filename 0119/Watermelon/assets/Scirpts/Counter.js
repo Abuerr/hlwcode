@@ -9,14 +9,15 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        let labelCom = this.node.getComponent(cc.Label);
+        this.labelCom = this.node.getComponent(cc.Label);
     },
 
     start() {
-
+        this.counter = 0;
     },
 
     updateCounter(point){
-        labelCom.string = "分数:" + point;
+        this.counter +=point;
+        this.labelCom.string = "分数:" + this.counter;
     }
 });
