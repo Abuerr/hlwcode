@@ -11,9 +11,9 @@ cc.Class({
     onLoad() {
         this.init();
         
-        // 获取倒计时器脚本
-        this.countDownNode = this.node.getChildByName('TimeClock');
-        this.countDownJS = this.countDownNode.getComponent('CountDown');
+        // // 获取倒计时器脚本
+        // this.countDownNode = this.node.getChildByName('TimeClock');
+        // this.countDownJS = this.countDownNode.getComponent('CountDown');
     },
 
     init() {
@@ -49,7 +49,7 @@ cc.Class({
 
     createFruit(level, pos, type) {
         // 合成大西瓜后或者时间停止就会停止生成新的水果
-        this.isEnd(level);
+        // this.isEnd(level);
         // 实例化水果预制件
         let pre = ResMgr.getInstance().getPrefabs('Fruit');
         let fruit = cc.instantiate(pre);
@@ -142,15 +142,15 @@ cc.Class({
     },
 
     // 判断是否结束
-    isEnd(level) {
+    // isEnd(level) {
         
-        let time = this.countDownJS.time;
-        if (level >= 11 || time<=0) {
-            // 计时器停止计时
-            this.countDownJS.endSign = true;
-            return;
-        }
-    }
+    //     let t = this.countDownJS.time;
+    //     if (level >= 11 || t<=0) {
+    //         // 计时器停止计时
+    //         this.countDownJS.endSign = true;
+    //         return;
+    //     }
+    // }
 
 
 

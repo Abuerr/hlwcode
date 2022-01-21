@@ -17,7 +17,7 @@ cc.Class({
     },
 
     updateCounter(point){
-        this.counter +=point;
+        this.counter += point;
         this.labelCom.string = "分数:" + this.counter;
     }
 });

@@ -629,8 +629,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 274.51,
-      "height": 50.4
+      "width": 37.5,
+      "height": 90.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -681,8 +681,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "倒计时:300",
-    "_N$string": "倒计时:300",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 50,
     "_lineHeight": 40,
     "_enableWrapText": true,

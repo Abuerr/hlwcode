@@ -12,9 +12,11 @@ cc.Class({
         this.phyColl = this.getComponent(cc.PhysicsCircleCollider);
         // 获取counter结点
         this.ct = this.node.parent.getChildByName("CounterPoint");
-    
+        this.cd = this.node.parent.getChildByName("TimeClock");
         // 获取Counter的Label的string属性
-        console.log(this.node.parent);
+        // 获取
+
+        
     },
 
 
@@ -155,6 +157,8 @@ cc.Class({
             // 发送消息让gameRoot创建新水果的函数
             this.emitMsg(selfLevel + 1, pos, cc.RigidBodyType.Dynamic);
             cc.systemEvent.emit('createBoom', selfLevel, pos,self.node.width);
+            // 判断是否生成大西瓜
+            this.isMelon(selfLevel + 1);
             // 销毁
             other.node.removeFromParent();
             self.node.removeFromParent();
@@ -170,6 +174,13 @@ cc.Class({
         // 调用修改方法
         ctCom.updateCounter(level);
 
+    },
+
+    // 如何合成了大西瓜就是等级为11的话
+    isMelon(level) {
+        if(level>=11){
+            this.cd.getComponent('CountDown').endSign = true;
+        }
     },
 
 
