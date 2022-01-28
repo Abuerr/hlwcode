@@ -70,7 +70,7 @@ cc.Class({
         node.position = pos;
         node.parent = this.node;
         // 生成果粒
-        this.createJuiceLO(level, node, this.names, radius);
+        // this.createJuiceLO(level, node, this.names, radius);
         // 生成果汁
         this.createJuiceQ(level, node, this.names[2]);
     },
@@ -102,23 +102,10 @@ cc.Class({
             let y = radius * Math.sin(angle);
             // 变换图片的角度
             juiceL.angle = angle * Math.PI * 3;
+            console.log(juiceL);
 
-            /**
-             * 缓动作用对象
-             * 缓动时长，{缓动目的地，缓动过程中scale的变化}，{淡入淡出效果}
-             * 缓动完毕之后调用的函数，参数为函数，此处输入匿名函数
-             * 启动缓动系统
-             */
-            // 随机的持续时间
-            let time = Math.random();
-            // 调用缓动系统
-            cc.tween(juiceL)
-                .to(time, { position: cc.v2(x, y), scale: 0.5 }, { easing: 'sineOutIn' })
-                .blink(time, 0.5, juiceL)
-                .call(() => {
-                    juiceL.destroy();
-                })
-                .start();
+            this.useTween(juiceL,cc.v2(x,y));
+            
         }
     },
 
@@ -127,7 +114,9 @@ cc.Class({
         let juiceQ = this.createJuice(level, node, name);
         // 设置位置
         juiceQ.position = node.position;
-        // console.log(juiceQ.position);
+        // console.log(juiceQ);
+
+        this.useTween(juiceQ,juiceQ.position);
     },
 
     createBoomAudio() {
@@ -141,6 +130,24 @@ cc.Class({
         // cc.audioEngine.stop(a);
     },
 
+    useTween(obj,pos) {
+        /**
+             * 缓动作用对象
+             * 缓动时长，{缓动目的地，缓动过程中scale的变化}，{淡入淡出效果}
+             * 缓动完毕之后调用的函数，参数为函数，此处输入匿名函数
+             * 启动缓动系统
+             */
+            // 随机的持续时间
+        let time = Math.random();
+            // 调用缓动系统
+            cc.tween(obj)
+                .to(time, { position: cc.v2(pos.x, pos.y), scale: 0.5 }, { easing: 'sineOutIn' })
+                .blink(time, 0.5, obj)
+                .call(() => {
+                    obj.destroy();
+                })
+                .start();
+    },
     // 判断是否结束
     // isEnd(level) {
         
